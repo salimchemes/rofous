@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { ApiAiClient } from 'api-ai-javascript';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 export class Message {
   constructor(public content: string, public sentBy: string) {}
 }
-
 
 @Injectable()
 export class ChatService {
@@ -14,7 +14,9 @@ export class ChatService {
   readonly token = environment.dialogflow.angularBot;
   readonly client = new ApiAiClient({ accessToken: this.token });
   conversation = new BehaviorSubject<Message[]>([]);
-  constructor() {}
+
+  constructor() { }
+
   // Sends and receives messages via DialogFlow
   converse(msg: string) {
     const userMessage = new Message(msg, 'user');
@@ -26,9 +28,10 @@ export class ChatService {
                   this.update(botMessage);
                });
   }
+
+
   // Adds message to source
   update(msg: Message) {
     this.conversation.next([msg]);
   }
-
 }
