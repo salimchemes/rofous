@@ -3,6 +3,8 @@ import { ChatService, Message } from '../chat.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
 
+import { Pipe, PipeTransform } from '@angular/core';
+import { LinkyModule } from 'angular-linky';
 
 @Component({
   selector: 'app-chat-dialog',
