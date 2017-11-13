@@ -13,19 +13,18 @@ export class ChatDialogComponent implements OnInit {
 
   messages: Observable<Message[]>;
   formValue: string; 
-  @ViewChildren('input') vc;
   constructor(public chat: ChatService) { }
-   
+
   ngOnInit() {
     // appends to array after each new message is added to feedSource
     this.messages = this.chat.conversation.asObservable()
-        .scan((acc, val) => acc.concat(val) );
+      .scan((acc, val) => acc.concat(val));
   }
   sendMessage() {
+    if (this.formValue == undefined || this.formValue.trim() == '')
+      return
     this.chat.converse(this.formValue);
-    this.formValue = '';
-    this.vc.first.nativeElement.focus();
-    
-  } 
+    this.formValue = '';  
+  }
 
 }

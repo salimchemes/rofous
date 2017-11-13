@@ -21,4 +21,10 @@
 margin-top: -10px;
 }
  
- 
+button{
+    background-color:#2095FE; 
+    border:#2095FE;
+}
+input{
+    border:0.1rem solid #d1d1d1 !important;
+} 
