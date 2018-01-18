@@ -1,13 +1,24 @@
  
-  <h1>Wapps Bot</h1>
+  <!-- <h1>Roufus - SeaRos Bot</h1> -->
+<div class="header" style="border:1px solid #606c76 !important;"><img width="40px" style="margin-top: 5px;" height="40px" src="assets/bird.png">
+  <span style="font-size:x-large;">Rofous - SeaRos Bot</span>
+</div>
+ 
+ <div #scrollMe class="content" >
   <ng-container *ngFor="let message of messages | async">
     <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
                                     'to':   message.sentBy === 'user' }">
  
-      <span [innerHTML]="message.content  | linky:{newWindow: true}"></span>
+      <span style="overflow-wrap: break-word;" [innerHTML]="message.content  | linky:{newWindow: true}"></span>
     </div>
-  </ng-container>
-  <label for="nameField">Escribe un mensaje</label>
+  </ng-container> 
+
+
+ </div>
+
+ <div class="footer">  
+   <label for="nameField">Ask something to Rofous</label>
   <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
-  <button (click)="sendMessage()">Enviar</button>  
+  <button (click)="sendMessage()">Send</button>  
+</div>
  

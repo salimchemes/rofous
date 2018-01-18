@@ -28,3 +28,30 @@ button{
 input{
     border:0.1rem solid #d1d1d1 !important;
 } 
+​.header
+{
+    height:30px; 
+
+}
+.content
+{
+    position:absolute;
+    top: 50px;
+    left:0px;
+    right:0px;
+    bottom:140px;
+    overflow-y:scroll;  
+    margin-top: 10px;      
+}
+.footer {
+    position: fixed; 
+    bottom: 90px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    padding: 5px;
+}
+a:link{
+    word-break: break-all;
+}
+
